@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom'
+import Cards from '../components/Cards'
+import Header from '../components/Header'
 import { PageWrapper } from '../components/StyledComponents'
 
 const Home = () => {
   return (
     <PageWrapper>
-      <h1>Homepage</h1>
-      <Link to="/search">Search</Link>
+      <Header />
+      <Cards />
     </PageWrapper>
   )
 } 
