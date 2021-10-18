@@ -1,11 +1,11 @@
-import { CJumbotron, SNavbar } from "./StyledComponents"
+import { SJumbotron, SNavbar } from "./StyledComponents"
 import Logo from "./Logo"
 
 const Header = () => {
   return (
     // make this resuable 
-    // <CJumbotron height="100vh">
-    <CJumbotron>
+    // <SJumbotron height="100vh">
+    <SJumbotron>
       <SNavbar>
         <Logo />
         <p>Guide</p>
@@ -17,7 +17,7 @@ const Header = () => {
         </div>
         <input type="text" className="searchTransition" placeholder="Which book are you looking for?"/>
       </div>
-    </CJumbotron>
+    </SJumbotron>
   )
 } 
 

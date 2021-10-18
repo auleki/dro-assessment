@@ -1,30 +1,34 @@
+import { IBook } from "../utilities/types"
 import { SCard, Row, CardContainer, Title } from "./StyledComponents"
 
-const Card = () => {
+const Card = (props: any) => {
+  console.log('Recieved in Card')
   return (
     <SCard>
       <Row>
         <div className="isbn">
           <h4>ISBN</h4>
-          <p>9141-1414081414114</p>
+          <p>{props.book.isbn}</p>
         </div>
         <div className="released">
           <h4>Released</h4>
-          <p>12th August 1990</p>
+          <p>{props.book.released}</p>
         </div>
       </Row>
       <CardContainer>
-        <Title>Game of Thrones the Sequel</Title>
+        <Title>{props.book.name}</Title>
       </CardContainer>
       <Row>
         <div className="published">
           <h4>Published by</h4>
-          <p>Bantam Books Incorporated</p>
+          <p>{props.book.publisher}</p>
         </div>
         <div className="authors">
           <h4>Author(s)</h4>
           <ul className="authorsList">
-            <li className="author">George M. Rodrigues</li>
+            {props.book.authors.map((author: string) => (
+              <li className="author">{author}</li>
+            ))}
           </ul>
         </div>
       </Row>
