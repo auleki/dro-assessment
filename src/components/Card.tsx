@@ -2,9 +2,9 @@ import { IBook } from "../utilities/types"
 import { SCard, Row, CardContainer, Title } from "./StyledComponents"
 
 const Card = (props: any) => {
-  console.log('Recieved in Card')
+  // console.log('Recieved in Card')
   return (
-    <SCard>
+    <SCard key={props.book.isbn}>
       <Row>
         <div className="isbn">
           <h4>ISBN</h4>
@@ -27,7 +27,7 @@ const Card = (props: any) => {
           <h4>Author(s)</h4>
           <ul className="authorsList">
             {props.book.authors.map((author: string) => (
-              <li className="author">{author}</li>
+              <li className="author" key={author}>{author}</li>
             ))}
           </ul>
         </div>

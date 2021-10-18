@@ -41,7 +41,7 @@ const Cards = () => {
   return (
     <SCards>
       <div className="cards">
-        {books.map((book: IBook) => <Card book={book}/>)}
+        {books.map((book: IBook) => <Card key={book.isbn} book={book}/>)}
       </div>
       <Pagination paginateBooks={paginateBooks}/>
     </SCards>

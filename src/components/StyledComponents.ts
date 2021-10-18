@@ -2,14 +2,27 @@ import styled, { css } from "styled-components";
 import { IRowProps } from "../utilities/types";
 import { colors as c, fonts as f } from "./constants";
 
-
-
 export const PageWrapper = styled.div(
   () => css`
     background: ${c.bg};
     height: 100vh;
     overflow-y: auto;
-    padding: 0 3rem 2rem 3rem;
+    top: 0;
+    padding: 1rem 3rem 2rem 3rem;
+    &::-webkit-scrollbar {
+      width: .5rem;
+      background: whitesmoke;
+    }
+
+    &::-webkit-scrollbar-align-tracks {
+      background: orange;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${c.button};
+      border-radius: 1.2rem;
+      width: .5rem;
+    }
   `
 )
 
@@ -28,12 +41,28 @@ export const SModal = styled.div(
     right: 0;
     overflow-y: auto;
     height: 100vh;
-    background: white;
+    background: ${c.subHeadline};
     z-index: 10;
+    color: white;
+
+    &::-webkit-scrollbar {
+      width: .5rem;
+      background: whitesmoke;
+    }
+
+    &::-webkit-scrollbar-align-tracks {
+      background: orange;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${c.button};
+      border-radius: 1.2rem;
+      width: .5rem;
+    }
   `
 )
 
-export const SearchHeader = styled.section(
+export const SSearchHeader = styled.section(
   () => css`
     display: flex;
     overflow: hidden;
@@ -145,18 +174,22 @@ export const SButton = styled.button(
 export const SSearchInput = styled.div(
   () => css`
     width: 100%;
-    background: whitesmoke;
+    /* background: whitesmoke; */
     padding: 1rem 0;
     display: flex;
     justify-content: center;
+    gap: 1rem;
+    /* border: 1px solid crimson; */
   `
 )
 
 export const SInput = styled.input(
   () => css`
     padding: 1rem;
+    color: white;
     border: 0;
-    background: transparent;
+    background: ${c.headline};
+
 
     &:focus {
       border: 0;

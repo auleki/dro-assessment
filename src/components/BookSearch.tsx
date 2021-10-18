@@ -1,11 +1,12 @@
+import { useState, useEffect } from "react"
 import BookInput from "./BookInput"
 import { ModalContainer } from "./StyledComponents"
 
-const BookSearch = () => {
+const BookSearch = () => {  
   return (
     <ModalContainer>
       <BookInput />
-      <h1>Results</h1>
+      <h1>Books Found:</h1>
     </ModalContainer>
   )
 } 
