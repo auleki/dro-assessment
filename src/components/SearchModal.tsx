@@ -15,7 +15,9 @@ const SearchModal = (props: any) => {
 
   return (
     <SModal modalState={props.toggleSearch}>
-      <ModalToggle setToggleSearch={props.setToggleSearch}/>
+      <ModalToggle 
+        modalToggle={props.toggleSearch}
+        setToggleSearch={props.setToggleSearch}/>
       <SearchHeader
         onSearchSelect={onSearchSelect} 
         searchContext={searchContext}

@@ -7,6 +7,7 @@ export const PageWrapper = styled.div(
     background: ${c.bg};
     height: 100vh;
     overflow-y: auto;
+    font-family: ${f.main};
     top: 0;
     padding: 1rem 3rem 2rem 3rem;
     &::-webkit-scrollbar {
@@ -33,18 +34,27 @@ export const ModalContainer = styled.div(
   `
 )
 
+export const SCloseIcon = styled.div(
+  (p: IModalProps) => css`
+    position: fixed;
+    display: ${!p.modalState ? 'none': 'block'};
+  `
+)
+
 export const SModal = styled.div(
   (p: IModalProps) => css`
     position: fixed;
     left: 0;
-    top: 0;
+    bottom: ${!p.modalState ? '-100%' : 0};
+    opacity: ${!p.modalState ? 0 : 1};
     right: 0;
     overflow-y: auto;
     height: 100vh;
     background: ${c.subHeadline};
     z-index: 10;
     color: white;
-    display: ${!p.modalState ? 'none' : 'block'};
+    transition: bottom 150ms ease-in-out,
+    opacity 150ms ease-in-out;
 
     &::-webkit-scrollbar {
       width: .5rem;
@@ -144,7 +154,7 @@ export const SJumbotron = styled.div(
 
 export const Title = styled.h1(
   () => css`
-    font-size: 4rem;
+    font-size: 2rem;
     `
 )
 
@@ -168,18 +178,7 @@ export const SNavbar = styled.nav(
     `
 )
 
-export const SCards = styled.section(
-  () => css`
-  display: flex;
-  flex-direction: column;
-    .cards {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(3, 3fr);
-    }
-  
-  `
-)
+
 
 export const SPagination = styled.div(
   () => css`
@@ -203,6 +202,7 @@ export const SButton = styled.button(
     border: 0;
     padding: 1rem 1.5rem;
     outline: 0;
+    font-family: ${f.main};
     background: ${c.button};
     color: whitesmoke;
     transition: 300ms ease-in;
@@ -242,11 +242,27 @@ export const SInput = styled.input(
   `
 )
 
+export const SCards = styled.section(
+  () => css`
+  display: flex;
+  flex-direction: column;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  `
+)
+
 export const SCard = styled.div(
   () => css`
     border: 2px dashed transparent;
     padding: 1rem 1.5rem;
     background: ${c.cardBg};
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 15rem;
+    width: 15rem;
     border-radius: .3rem;
     transition: 200ms border ease-in,
     100ms transform ease-in;

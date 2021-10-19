@@ -4,14 +4,6 @@ import Logo from "./Logo"
 
 const Header = (props: any) => {
   const inputRef = useRef<HTMLInputElement>(null)
-  
- 
-//  inputRef.current?.onfocus(event: any)
-
-  // useEffect(() => {
-  //   triggerModal()
-  // }, [inputRef])
-
   return (
     <SJumbotron>
       <SNavbar>
@@ -23,11 +15,11 @@ const Header = (props: any) => {
           <h2>Find Books With</h2> 
           <Logo />
         </div>
-        <input 
+        {/* <input 
           type="text" 
           className="searchTransition" 
           ref={inputRef}
-          placeholder="Which book are you looking for?"/>
+          placeholder="Which book are you looking for?"/> */}
         <SButton onClick={() => props.setToggleSearch(!props.toggleSearch)}>SEARCH</SButton>
       </div>
     </SJumbotron>
