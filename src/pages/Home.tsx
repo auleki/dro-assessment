@@ -6,13 +6,20 @@ import { PageWrapper } from '../components/StyledComponents'
 
 const Home = () => {
   const [toggleSearch, setToggleSearch] = useState<boolean>(false)
-  
+
+  const openModal = () => setToggleSearch(!toggleSearch) 
+    
   return (
     <PageWrapper>
-      <SearchModal toggleSearch={toggleSearch}/>
+      <SearchModal 
+        toggleSearch={toggleSearch}
+        setToggleSearch={setToggleSearch}
+        />
       <Header 
+        openModal={openModal}
         setToggleSearch={setToggleSearch} 
-        toggleSearch={toggleSearch}/>
+        toggleSearch={toggleSearch}
+        />
       <Cards />
     </PageWrapper>
   )

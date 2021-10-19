@@ -181,6 +181,23 @@ export const SCards = styled.section(
   `
 )
 
+export const SPagination = styled.div(
+  () => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+
+    .pageNumber {
+      display: inline-flex;
+      color: white;
+      padding: .5rem;
+      background: crimson;
+      box-shadow: 1px 2px 10px crimson;
+    }
+  `
+)
+
 export const SButton = styled.button(
   () => css`
     border: 0;
@@ -189,6 +206,7 @@ export const SButton = styled.button(
     background: ${c.button};
     color: whitesmoke;
     transition: 300ms ease-in;
+    border-radius: .2rem;
 
     &:hover {
       background: #1a1a1a;
@@ -245,7 +263,29 @@ export const SCard = styled.div(
     .isbn, .released {
       h4 {
         border: 1px solid #33333340;
-        border-radius: .1rem;
+        background: ${c.subHeadline};
+        color: white;
+        border-radius: .2rem;
+        padding: .5rem 0;
+      }
+    }
+
+    .authors {
+      h4 {
+        text-align: right;
+      }
+    }
+
+    .authors, .published {
+      h4 {
+        display: inline-flex;
+        padding: 0 .5rem .1rem .5rem;
+        border-bottom: crimson .15rem solid;
+        margin: 0;
+      }
+
+      p,  ul {
+        margin: .3rem 0 0;
       }
     }
 

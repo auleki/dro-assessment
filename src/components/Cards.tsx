@@ -2,19 +2,24 @@ import { useState, useEffect } from "react"
 import { getBooks } from "../services/handlers"
 import { IBook } from "../utilities/types"
 import Card from "./Card"
+import EmptyBook from "./EmptyBook"
+import LoadingIndicator from "./LoadingIndicator"
 import Pagination from "./Pagination"
 import { SCards } from "./StyledComponents"
 
 
 const Cards = () => {
   const [books, setBooks] = useState<any>([])
+  const [loading, setLoading] = useState<boolean>(false)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const booksUrl = `https://www.anapioficeandfire.com/api/books?&page=${pageNumber}&pageSize=10`
 
   useEffect(() => {
     async function fetchBooks () {
+      setLoading(true)
       const fetchedBooks = await getBooks(booksUrl)
       setBooks(fetchedBooks)
+      setLoading(false)
     }
     fetchBooks()
   }, [pageNumber])
@@ -27,7 +32,12 @@ const Cards = () => {
     
     switch (direction) {
       case "next": 
-        setPageNumber(pageNumber + 1);
+        if (pageNumber > 1 && books.length === 0) {
+          setPageNumber(1)
+        } else {
+          setPageNumber(pageNumber + 1);
+        }
+        
         break
       case "prev":
         if (pageNumber === 1) return
@@ -41,9 +51,16 @@ const Cards = () => {
   return (
     <SCards>
       <div className="cards">
-        {books.map((book: IBook) => <Card key={book.isbn} book={book}/>)}
+        {loading 
+          ? <LoadingIndicator />
+          : (books.length === 0 && pageNumber > 1) 
+          ? <EmptyBook />
+          : (books.map((book: IBook) => <Card key={book.isbn} book={book}/>))
+        }
       </div>
-      <Pagination paginateBooks={paginateBooks}/>
+      <Pagination 
+        paginateBooks={paginateBooks} 
+        pageNumber={pageNumber}/>
     </SCards>
   )
 } 

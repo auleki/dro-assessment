@@ -1,8 +1,10 @@
 import { SIconButton } from "./StyledComponents"
 
-const ModalToggle = () => {
+const ModalToggle = (props: any) => {
   return (
-    <SIconButton>X</SIconButton>
+    <SIconButton onClick={() => props.setToggleSearch(false)}>
+      X
+    </SIconButton>
   )
 } 
 

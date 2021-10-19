@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react"
-import { SJumbotron, SNavbar } from "./StyledComponents"
+import { SJumbotron, SNavbar, SButton } from "./StyledComponents"
 import Logo from "./Logo"
 
 const Header = (props: any) => {
@@ -16,7 +16,7 @@ const Header = (props: any) => {
     <SJumbotron>
       <SNavbar>
         <Logo />
-        <p>Guide</p>
+        {/* <p>Guide</p> */}
       </SNavbar>
       <div className="headerText">
         <div className="title">
@@ -28,6 +28,7 @@ const Header = (props: any) => {
           className="searchTransition" 
           ref={inputRef}
           placeholder="Which book are you looking for?"/>
+        <SButton onClick={() => props.setToggleSearch(!props.toggleSearch)}>SEARCH</SButton>
       </div>
     </SJumbotron>
   )

@@ -1,4 +1,5 @@
 import { IBook } from "../utilities/types"
+import moment from "moment"
 import { SCard, Row, CardContainer, Title } from "./StyledComponents"
 
 const Card = (props: any) => {
@@ -12,7 +13,7 @@ const Card = (props: any) => {
         </div>
         <div className="released">
           <h4>Released</h4>
-          <p>{props.book.released.toDateString()}</p>
+          <p>{moment(props.book.released).format('LL')}</p>
         </div>
       </Row>
       <CardContainer>
