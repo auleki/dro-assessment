@@ -1,10 +1,18 @@
+import { useRef, useEffect } from "react"
 import { SJumbotron, SNavbar } from "./StyledComponents"
 import Logo from "./Logo"
 
-const Header = () => {
+const Header = (props: any) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  
+ 
+//  inputRef.current?.onfocus(event: any)
+
+  // useEffect(() => {
+  //   triggerModal()
+  // }, [inputRef])
+
   return (
-    // make this resuable 
-    // <SJumbotron height="100vh">
     <SJumbotron>
       <SNavbar>
         <Logo />
@@ -15,7 +23,11 @@ const Header = () => {
           <h2>Find Books With</h2> 
           <Logo />
         </div>
-        <input type="text" className="searchTransition" placeholder="Which book are you looking for?"/>
+        <input 
+          type="text" 
+          className="searchTransition" 
+          ref={inputRef}
+          placeholder="Which book are you looking for?"/>
       </div>
     </SJumbotron>
   )

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { IRowProps } from "../utilities/types";
+import { IModalProps, IRowProps } from "../utilities/types";
 import { colors as c, fonts as f } from "./constants";
 
 export const PageWrapper = styled.div(
@@ -34,7 +34,7 @@ export const ModalContainer = styled.div(
 )
 
 export const SModal = styled.div(
-  () => css`
+  (p: IModalProps) => css`
     position: fixed;
     left: 0;
     top: 0;
@@ -44,6 +44,7 @@ export const SModal = styled.div(
     background: ${c.subHeadline};
     z-index: 10;
     color: white;
+    display: ${!p.modalState ? 'none' : 'block'};
 
     &::-webkit-scrollbar {
       width: .5rem;
@@ -58,6 +59,31 @@ export const SModal = styled.div(
       background: ${c.button};
       border-radius: 1.2rem;
       width: .5rem;
+    }
+  `
+)
+
+export const SIconButton = styled.button(
+  () => css`
+    background: crimson;
+    border-radius: 50%;
+    border: 0;
+    height: 2.5rem;
+    border: 3px solid white;
+    width: 2.5rem;
+    color: white;
+    position: fixed;
+    right: 1.5rem;
+    top: 1rem;
+    cursor: pointer;
+    transition: 300ms ease-in;
+    
+    &:hover {
+      background: transparent;
+    }
+
+    &:active {
+      transform: translateY(.5rem);
     }
   `
 )

@@ -15,3 +15,7 @@ export interface IRowProps {
   alignment?: string
   padding?: string
 }
+
+export interface IModalProps {
+  modalState: boolean
+}

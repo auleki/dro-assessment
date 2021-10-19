@@ -11,12 +11,16 @@ const CharacterSearch = () => {
   const [characterResults, setCharacterResults] = useState<any>([])
 
 
-  async function getCharacterBook (url: string) {
-    const { data } = await axios.get<IBookName, AxiosResponse>(url)
-    // return data.name
+  async function getCharacterBook (url: string): Promise<any> {
+    try {
+      const result = await axios.get<IBookName, any>(url)
+      console.log('getCharacterBook running + ', result.data.name)
+      return result.data.name      
+    } catch (error) {
+      console.log(error)
+    }
   }
-
-
+  // getCharacterBook('https://www.anapioficeandfire.com/api/books/6')
   return (
     <ModalContainer>
       <CharacterInput 
@@ -31,7 +35,8 @@ const CharacterSearch = () => {
               <p>{character.gender}</p>
               <ul>
                 {character.books.map((book: string, i: number) => (
-                  <li key={i}>{book}</li>
+                  // <li key={i}>{getCharacterBook(book)}</li>
+                  <li key={i}>LINE - {book}</li>
                 ))}
               </ul>
             </section>

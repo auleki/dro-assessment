@@ -12,7 +12,7 @@ const Card = (props: any) => {
         </div>
         <div className="released">
           <h4>Released</h4>
-          <p>{props.book.released}</p>
+          <p>{props.book.released.toDateString()}</p>
         </div>
       </Row>
       <CardContainer>
