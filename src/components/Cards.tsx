@@ -47,7 +47,7 @@ const Cards = () => {
         setPageNumber(1)
     }
   }
-  
+
   return (
     <SCards>
       <div className="cards">

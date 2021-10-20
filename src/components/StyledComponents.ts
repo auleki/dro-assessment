@@ -166,7 +166,7 @@ export const SubTitle = styled.h2(
 
 export const SLogo = styled.h1(
   () => css`
-    font-family: ${f.logo};
+    font-family: ${f.handwriting};
     `
 )
 
